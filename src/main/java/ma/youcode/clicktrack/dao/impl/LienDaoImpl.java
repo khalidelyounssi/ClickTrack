@@ -27,4 +27,18 @@ public class LienDaoImpl implements LienDao {
         }
         return result;
     }
+    @Override
+    public synchronized Optional<Lien> incrementAndGet(long id) {
+        for (int i = 0; i < liens.size(); i++) {
+            Lien old = liens.get(i);
+            if (old.getId() == id) {
+                Lien updated = new Lien(old.getId(), old.getOffre(),
+                        old.getUrlDestination(), old.getClicks() + 1,
+                        old.getPublisherId());
+                liens.set(i, updated);
+                return Optional.of(updated);
+            }
+        }
+        return Optional.empty();
+    }
 }
