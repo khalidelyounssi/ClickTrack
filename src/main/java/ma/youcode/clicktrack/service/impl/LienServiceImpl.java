@@ -1,12 +1,12 @@
 package ma.youcode.clicktrack.service.impl;
 
 import java.net.URI;
+import java.util.*;
 import ma.youcode.clicktrack.dao.LienDao;
 import ma.youcode.clicktrack.dto.*;
 import ma.youcode.clicktrack.exception.ApiException;
 import ma.youcode.clicktrack.model.*;
-import ma.youcode.clicktrack.service.LienService;
-import ma.youcode.clicktrack.service.PublisherService;
+import ma.youcode.clicktrack.service.*;
 
 public class LienServiceImpl implements LienService {
     private final LienDao lienDao;
@@ -40,5 +40,10 @@ public class LienServiceImpl implements LienService {
             throw new ApiException(400, "URL HTTP ou HTTPS invalide");
         }
         return lienDao.create(publisherId, request.offre().trim(), url);
+    }
+    @Override
+    public List<Lien> findByPublisherId(long publisherId) {
+        publisherService.requirePublisher(publisherId);
+        return lienDao.findByPublisherId(publisherId);
     }
 }
