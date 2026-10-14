@@ -46,4 +46,14 @@ public class LienServiceImpl implements LienService {
         publisherService.requirePublisher(publisherId);
         return lienDao.findByPublisherId(publisherId);
     }
+    @Override
+    public TrackingResponse track(long id) {
+        Lien lien = lienDao.incrementAndGet(id).orElseThrow(
+                () -> new ApiException(404, "Lien introuvable"));
+        Publisher publisher = publisherService.requirePublisher(
+                lien.getPublisherId());
+        return new TrackingResponse(lien.getUrlDestination(),
+                publisher.getPrenom() + " " + publisher.getNom(),
+                lien.getOffre(), lien.getClicks());
+    }
 }
