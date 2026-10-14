@@ -19,4 +19,8 @@
         </property>
     </bean>
     <bean class="org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver"/>
+    <bean id="publisherController"
+          class="ma.youcode.clicktrack.controller.PublisherController">
+        <constructor-arg ref="publisherService"/>
+    </bean>
 </beans>

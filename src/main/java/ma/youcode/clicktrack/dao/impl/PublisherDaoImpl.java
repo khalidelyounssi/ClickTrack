@@ -5,34 +5,27 @@ import java.util.List;
 import java.util.Optional;
 
 import ma.youcode.clicktrack.dao.PublisherDAO;
-import ma.youcode.clicktrack.model.Publisher;
+import ma.youcode.clicktrack.model.*;
 
 public class PublisherDaoImpl implements PublisherDAO {
     private final List<Publisher> publishers = new ArrayList<>();
+    
 
-    public List<Publisher> findAll(){
+    
+    @Override
+    public synchronized List<Publisher> findAll() {
         return new ArrayList<>(publishers);
     }
-
     @Override
-    public Optional<Publisher> findById(long id) {
-
-        Optional<Publisher> publisher = publishers.stream().filter(p->p.getId()==id).findFirst();
-       
-        return publisher;
+    public synchronized Optional<Publisher> findById(long id) {
+        return publishers.stream()
+                .filter(p -> p.getId() == id).findFirst();
     }
-
     @Override
-    public void save(Publisher pablisher) {
-
-        publishers.add(pablisher);
-       
-        
+    public synchronized void save(Publisher publisher) {
+        if (findById(publisher.getId()).isPresent()) {
+            throw new IllegalArgumentException("Publisher deja present");
+        }
+        publishers.add(publisher);
     }
-
-   
-    
-    
-   
-   
 }
