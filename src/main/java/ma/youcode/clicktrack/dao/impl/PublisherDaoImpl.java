@@ -9,6 +9,16 @@ import ma.youcode.clicktrack.model.*;
 
 public class PublisherDaoImpl implements PublisherDAO {
     private final List<Publisher> publishers = new ArrayList<>();
+
+
+     public PublisherDaoImpl() {
+        save(new Publisher(1, "Alami", "Sara",
+                "sara@example.com", Categorie.INFLUENCEUR));
+        save(new Publisher(2, "Bennani", "Youssef",
+                "youssef@example.com", Categorie.YOUTUBEUR));
+        save(new Publisher(3, "El Idrissi", "Imane",
+                "imane@example.com", Categorie.BLOGUEUR));
+    }
     
 
     
