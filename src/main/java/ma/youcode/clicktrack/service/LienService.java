@@ -8,4 +8,5 @@ import ma.youcode.clicktrack.model.Lien;
 public interface LienService {
     Lien create(long publisherId, CreateLienRequest request);
     List<Lien> findByPublisherId(long publisherId);
+    TrackingResponse track(long id);
 }
