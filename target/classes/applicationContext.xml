@@ -4,8 +4,15 @@
        https://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="publisherDao"
           class="ma.youcode.clicktrack.dao.impl.PublisherDaoImpl"/>
+    <bean id="lienDao"
+          class="ma.youcode.clicktrack.dao.impl.LienDaoImpl"/>
     <bean id="publisherService"
           class="ma.youcode.clicktrack.service.impl.PublisherServiceImpl">
         <constructor-arg ref="publisherDao"/>
+    </bean>
+    <bean id="lienService"
+          class="ma.youcode.clicktrack.service.impl.LienServiceImpl">
+        <constructor-arg ref="lienDao"/>
+        <constructor-arg ref="publisherService"/>
     </bean>
 </beans>
