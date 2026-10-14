@@ -17,4 +17,14 @@ public class LienDaoImpl implements LienDao {
         liens.add(lien);
         return lien;
     }
+    @Override
+    public synchronized List<Lien> findByPublisherId(long publisherId) {
+        List<Lien> result = new ArrayList<>();
+        for (Lien lien : liens) {
+            if (lien.getPublisherId() == publisherId) {
+                result.add(lien);
+            }
+        }
+        return result;
+    }
 }
