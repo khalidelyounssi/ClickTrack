@@ -22,5 +22,6 @@
     <bean id="publisherController"
           class="ma.youcode.clicktrack.controller.PublisherController">
         <constructor-arg ref="publisherService"/>
+        <constructor-arg ref="lienService"/>
     </bean>
 </beans>
