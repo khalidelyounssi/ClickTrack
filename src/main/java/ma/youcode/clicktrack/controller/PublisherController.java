@@ -29,4 +29,14 @@ public class PublisherController extends BaseController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(lienService.create(id, request));
     }
+    @GetMapping("/{id}/liens")
+    @ResponseBody
+    public List<Lien> liens(@PathVariable("id") long id) {
+        return lienService.findByPublisherId(id);
+    }
+    @GetMapping("/{id}/offres")
+    @ResponseBody
+    public List<OffreResponse> offres(@PathVariable("id") long id) {
+        return lienService.findOffres(id);
+    }
 }
