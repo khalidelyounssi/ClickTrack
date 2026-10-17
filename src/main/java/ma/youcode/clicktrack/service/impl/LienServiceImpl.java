@@ -56,4 +56,38 @@ public class LienServiceImpl implements LienService {
                 publisher.getPrenom() + " " + publisher.getNom(),
                 lien.getOffre(), lien.getClicks());
     }
+
+    @Override
+public List<OffreResponse> findOffres(long publisherId) {
+
+    List<Lien> liens = findByPublisherId(publisherId);
+
+    Map<String, OffreResponse> totals = new LinkedHashMap<>();
+
+    for (Lien lien : liens) {
+
+        String offre = lien.getOffre();
+
+        OffreResponse ancienne = totals.get(offre);
+
+        if (ancienne == null) {
+
+            totals.put(offre, new OffreResponse(
+                    offre,
+                    1,
+                    lien.getClicks()
+            ));
+
+        } else {
+
+            totals.put(offre, new OffreResponse(
+                    offre,
+                    ancienne.nombreLiens() + 1,
+                    ancienne.clicks() + lien.getClicks()
+            ));
+        }
+    }
+
+    return new ArrayList<>(totals.values());
+}
 }

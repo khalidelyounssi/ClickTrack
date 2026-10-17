@@ -1,12 +1,15 @@
 /Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/config/XmlHandlerMapping.java
 /Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/controller/BaseController.java
 /Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/controller/PublisherController.java
+/Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/controller/TrackingController.java
 /Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/dao/LienDao.java
 /Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/dao/PublisherDAO.java
 /Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/dao/impl/LienDaoImpl.java
 /Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/dao/impl/PublisherDaoImpl.java
 /Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/dto/ApiError.java
 /Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/dto/CreateLienRequest.java
+/Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/dto/OffreResponse.java
+/Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/dto/TrackingResponse.java
 /Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/exception/ApiException.java
 /Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/model/Categorie.java
 /Users/macbook/Desktop/ClickTrack/src/main/java/ma/youcode/clicktrack/model/Lien.java
